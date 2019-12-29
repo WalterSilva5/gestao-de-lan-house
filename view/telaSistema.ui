@@ -6,9 +6,27 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>888</width>
-    <height>645</height>
+    <width>890</width>
+    <height>650</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>890</width>
+    <height>650</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>890</width>
+    <height>650</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Sistema de gestão para lan houses</string>
@@ -40,7 +58,7 @@ border: 1px solid red;
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLCDNumber" name="relogio">
+    <widget class="QLabel" name="relogio">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -49,8 +67,17 @@ border: 1px solid red;
        <height>51</height>
       </rect>
      </property>
-     <property name="styleSheet">
-      <string notr="true">border: none;</string>
+     <property name="font">
+      <font>
+       <family>Cantarell Extra Bold</family>
+       <pointsize>19</pointsize>
+       <weight>75</weight>
+       <italic>false</italic>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>88:88:88</string>
      </property>
     </widget>
    </widget>
@@ -74,7 +101,7 @@ border-radius: 10px;
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QPushButton" name="btEntradasESaidas">
+    <widget class="QPushButton" name="buttonEntradasESaidas">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -105,7 +132,7 @@ hover:{
  SAIDAS</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btControleDiario">
+    <widget class="QPushButton" name="buttonControle">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -131,7 +158,7 @@ border-radius: 10px;</string>
       <string>CONTROLE</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btEstatisticas">
+    <widget class="QPushButton" name="buttonEstatisticas">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -158,7 +185,7 @@ border-radius: 10px;</string>
       <string>ESTATISTICAS</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btVendas">
+    <widget class="QPushButton" name="buttonVendas">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -278,19 +305,6 @@ border-radius: 10px;
        <string>pc</string>
       </property>
      </widget>
-     <widget class="QPlainTextEdit" name="entradaValorEntrada">
-      <property name="geometry">
-       <rect>
-        <x>70</x>
-        <y>30</y>
-        <width>81</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border: 1px solid green;</string>
-      </property>
-     </widget>
      <widget class="QLabel" name="labelTituloEntrada">
       <property name="geometry">
        <rect>
@@ -344,6 +358,26 @@ hover:{
        <string>CONFIRMAR</string>
       </property>
      </widget>
+     <widget class="QLineEdit" name="entradaValorEntrada">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>30</y>
+        <width>81</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>22</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid green;</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QFrame" name="formSaida">
      <property name="geometry">
@@ -381,19 +415,6 @@ hover:{
       </property>
       <property name="text">
        <string>Valor:</string>
-      </property>
-     </widget>
-     <widget class="QPlainTextEdit" name="entradaValorSaida">
-      <property name="geometry">
-       <rect>
-        <x>70</x>
-        <y>30</y>
-        <width>81</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border: 1px solid green;</string>
       </property>
      </widget>
      <widget class="QLabel" name="labelTituloSaida">
@@ -449,6 +470,29 @@ hover:{
        <string>CONFIRMAR</string>
       </property>
      </widget>
+     <widget class="QLineEdit" name="entradaValorSaida">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>30</y>
+        <width>81</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>22</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid green;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </widget>
     <widget class="QTableView" name="tabelaEntradasESaidas">
      <property name="geometry">
@@ -458,6 +502,13 @@ hover:{
        <width>691</width>
        <height>351</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>22</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
      </property>
     </widget>
     <widget class="QLabel" name="labelTitulo">
@@ -614,6 +665,13 @@ border-radius: 10px;
         <height>51</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>22</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">border: 1px solid green;</string>
       </property>
@@ -694,6 +752,13 @@ hover:{
         <width>111</width>
         <height>51</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>22</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">border: 1px solid green;</string>
@@ -967,6 +1032,12 @@ border-radius: 10px;
       <height>501</height>
      </rect>
     </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
     <property name="styleSheet">
      <string notr="true">border: 1px solid red;
 border-radius: 10px;
@@ -1010,6 +1081,9 @@ border-radius: 10px;
        <height>281</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(85, 0, 255);</string>
+     </property>
     </widget>
     <widget class="QLabel" name="labelAlerta">
      <property name="geometry">
@@ -1037,12 +1111,12 @@ border-radius: 10px;
    </widget>
    <zorder>frameEstatisticas</zorder>
    <zorder>frameControle</zorder>
-   <zorder>frameEntradasESaidas</zorder>
-   <zorder>frameInicial</zorder>
-   <zorder>frameVendas</zorder>
    <zorder>frameRelogio</zorder>
    <zorder>frameBotoesLaterais</zorder>
    <zorder>frameResumoDia</zorder>
+   <zorder>frameVendas</zorder>
+   <zorder>frameEntradasESaidas</zorder>
+   <zorder>frameInicial</zorder>
   </widget>
  </widget>
  <resources/>
