@@ -7,8 +7,15 @@ class ControllerTelaSistema(QMainWindow):
         self.model = model
         self.tela = Ui_MainWindow()
         self.tela.setupUi(self)
+        self.tela.btEntradasESaidas.clicked.connect(self.mostrarframeEntradasESaidas)
 
-        self.tela.btEntradasSaidas.clicked.connect(self.mostrarframeEntradasSaidas)
-
-    def mostrarframeEntradasSaidas(self):
-        self.frameEntradasSaidas.show()
+    def mostrarframeEntradasESaidas(self):
+        self.esconderTodosOsFramesDeUso()
+        self.tela.frameEntradasSaidas.show()
+        
+    def esconderTodosOsFramesDeUso(self):
+        self.tela.frameControle.hide()
+        self.tela.frameEntradasESaidas.hide()
+        self.tela.frameEstatisticas.hide()
+        self.tela.frameVendas.hide()
+        self.tela.frameInicial.hide()
