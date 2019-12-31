@@ -1,6 +1,8 @@
 from PyQt5.QtWidgets import QMainWindow
 from view.telaSistema import Ui_MainWindow
 from datetime import datetime
+
+
 class ControllerTelaSistema(QMainWindow):
     def __init__(self, model):
         super().__init__()
@@ -20,6 +22,17 @@ class ControllerTelaSistema(QMainWindow):
         #    now = datetime.now()
         #    self.tela.relogio.setText(now.strftime("%H:%M:%S"))
 
+
+        #adicionar valor a tabela venda
+        self.tela.buttonConfirmarEntradaVenda.clicked.connect(self.adicionarValorATabelaVenda)
+
+        #fim adicionar valor a tabela venda
+        rowPosition = self.tela.tabelaVendaItens.rowCount()
+        self.tela.tabelaVendaItens.insertRow(rowPosition)
+
+        self.tela.tabelaVendaItens.setItem(rowPosition , 0, QTableWidgetItem("text1"))
+        self.tela.tabelaVendaItens.setItem(rowPosition , 1, QTableWidgetItem("text2"))
+        self.tela.tabelaVendaItens.setItem(rowPosition , 2, QTableWidgetItem("text3"))
     #transições entre telas
     def mostrarframeEntradasESaidas(self):
         self.esconderTodosOsFramesDeUso()
@@ -47,4 +60,10 @@ class ControllerTelaSistema(QMainWindow):
     #fim transições entre telas
 
     #relogio
+    #fim relogio
+    
+    #adicionar valor a tabela venda
+    def adicionarValorATabelaVenda(self):
+        valor = self.tela.entradaValorVenda.toPlainText()
+        print(valor)
     

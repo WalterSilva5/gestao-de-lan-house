@@ -378,6 +378,12 @@ hover:{
        <string notr="true">border: 1px solid green;</string>
       </property>
      </widget>
+     <zorder>labelValorEntrada</zorder>
+     <zorder>radioButtonXbox</zorder>
+     <zorder>radioButtonPc</zorder>
+     <zorder>labelTituloEntrada</zorder>
+     <zorder>entradaValorEntrada</zorder>
+     <zorder>buttonConfirmarEntrada</zorder>
     </widget>
     <widget class="QFrame" name="formSaida">
      <property name="geometry">
@@ -676,7 +682,7 @@ border-radius: 10px;
        <string notr="true">border: 1px solid green;</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="buttonCofirmarEntrada">
+     <widget class="QPushButton" name="buttonConfirmarEntradaVenda">
       <property name="geometry">
        <rect>
         <x>210</x>
@@ -901,16 +907,6 @@ hover:{
       </property>
      </widget>
     </widget>
-    <widget class="QTableView" name="tabelaVendas">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>120</y>
-       <width>691</width>
-       <height>291</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QLabel" name="labelTituloVendas">
      <property name="geometry">
       <rect>
@@ -933,6 +929,32 @@ hover:{
      <property name="text">
       <string>VENDAS</string>
      </property>
+    </widget>
+    <widget class="QTableWidget" name="tabelaVendaItens">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>120</y>
+       <width>691</width>
+       <height>291</height>
+      </rect>
+     </property>
+     <column>
+      <property name="text">
+       <string>VALOR</string>
+      </property>
+      <property name="textAlignment">
+       <set>AlignCenter</set>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>OBSERVAÇÕES</string>
+      </property>
+      <property name="textAlignment">
+       <set>AlignCenter</set>
+      </property>
+     </column>
     </widget>
    </widget>
    <widget class="QFrame" name="frameEstatisticas">
@@ -1114,9 +1136,9 @@ border-radius: 10px;
    <zorder>frameRelogio</zorder>
    <zorder>frameBotoesLaterais</zorder>
    <zorder>frameResumoDia</zorder>
-   <zorder>frameVendas</zorder>
    <zorder>frameEntradasESaidas</zorder>
    <zorder>frameInicial</zorder>
+   <zorder>frameVendas</zorder>
   </widget>
  </widget>
  <resources/>
