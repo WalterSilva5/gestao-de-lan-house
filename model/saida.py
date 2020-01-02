@@ -12,7 +12,11 @@ class Saida():
 
     def __init__(self):
         self.engine = create_engine("sqlite:///{}/model/SQL/base.db".format(path[0]), echo=True)
-        self.conn = engine.connect()
+        self.conn = self.engine.connect()
     
     def adicionarSaida(self, valor, obs=""):
-        self.engine.execute("INSERT INTO entrada (valor, data, tipo, obs) VALUES ('{}', '{}', '{}', '{}')".format(valor, datetime.now().strftime("%d/%m/%Y %H:%M:%S"), tipo, obs))
+        self.engine.execute("INSERT INTO saida (valor, data, obs) VALUES ('{}', '{}', '{}')".format(valor, datetime.now().strftime("%d/%m/%Y %H:%M:%S"), obs))
+
+    def listarSaidas(self):
+        return (self.engine.execute("SELECT * FROM saida")).fetchall()
+

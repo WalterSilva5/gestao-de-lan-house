@@ -39,11 +39,19 @@ class ControllerTelaSistema(QMainWindow):
         #listagem Entradas e saidas
         #self.tela.buttonConfirmarEntrada.clicked.connect()
         #fim listagem entradas e saidas
+        #adicionar entrada pela tela de listagem
+        self.tela.buttonConfirmarEntrada.clicked.connect(self.adicionarEntradaPelaListagem)
+        #fim adicionar entrada pela tela de listagem
+        #adicionar saida pela tela de listagem
+        self.tela.buttonConfirmarSaida.clicked.connect(self.adicionarSaidaPelaListagem)
+        #fim adicionar saida pela tela de listagem
+
     #transições entre telas
     def mostrarframeEntradasESaidas(self):
         self.esconderTodosOsFramesDeUso()
         self.tela.frameEntradasESaidas.show()
         self.listarEntradas()
+        self.listarSaidas()
 
         
     def mostrarFrameEstatisticas(self):
@@ -117,8 +125,47 @@ class ControllerTelaSistema(QMainWindow):
             self.tela.tabelaEntradas.setItem(atual , 1, QTableWidgetItem(str(elemento[1])))     
             self.tela.tabelaEntradas.setItem(atual , 2, QTableWidgetItem(str(elemento[2])))     
             self.tela.tabelaEntradas.setItem(atual , 3, QTableWidgetItem(str(elemento[3])))     
-            
-
-
-
     #fim listar entradas e saidas na tela de listagem
+    #listar saidas na tela de listagem
+    def listarSaidas(self):
+        self.tela.tabelaSaidas.setRowCount(0)
+        saida = Saida()
+        saidas = saida.listarSaidas()
+        for elemento in saidas:
+            atual = self.tela.tabelaSaidas.rowCount()
+            self.tela.tabelaSaidas.insertRow(atual)
+            self.tela.tabelaSaidas.setItem(atual , 0, QTableWidgetItem(str(elemento[0])))     
+            self.tela.tabelaSaidas.setItem(atual , 1, QTableWidgetItem(str(elemento[1])))     
+            self.tela.tabelaSaidas.setItem(atual , 2, QTableWidgetItem(str(elemento[2])))        
+    #fim listar saidas na tela de listagem
+    #adicionar valor entrada pela janela de listagem
+    def adicionarEntradaPelaListagem(self):
+        try:
+            valor = float(self.tela.entradaValorEntrada.toPlainText())
+        except:
+            print("ocorreu um erro")
+        else:
+            if(self.tela.radioButtonXbox.isChecked()):
+                tipo = "xbox"
+            else:
+                tipo = "pc"
+            if valor != 0:
+                entrada = Entrada()
+                entrada.adicionarEntrada(valor, tipo)
+                self.tela.entradaValorEntrada.clear()
+                self.listarEntradas()
+    #fim adicionar valor entrada pela janela de listagem
+    #adicionar valor saida pela tela de listagem
+    def adicionarSaidaPelaListagem(self):
+        try:
+            valor = float(self.tela.entradaValorSaida.toPlainText())
+        except:
+            print("ocorreu um erro")
+        else:
+            if valor != 0:
+                saida = Saida()
+                saida.adicionarSaida(valor)
+                self.tela.entradaValorSaida.clear()
+                self.listarSaidas()
+
+    #fim adicionar valor saida pela tela de listagem
