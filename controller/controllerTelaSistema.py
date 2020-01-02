@@ -12,7 +12,6 @@ class ControllerTelaSistema(QMainWindow):
         self.model = model
         self.tela = Ui_MainWindow()
         self.tela.setupUi(self)
-        
         #transições entre telas
         self.tela.buttonEntradasESaidas.clicked.connect(self.mostrarframeEntradasESaidas)
         self.tela.buttonEstatisticas.clicked.connect(self.mostrarFrameEstatisticas)
@@ -36,14 +35,16 @@ class ControllerTelaSistema(QMainWindow):
         ##finalizar venda e adicionar a base
         self.tela.buttonFinalizarVenda.clicked.connect(self.finalizarVenda)
         ##fim finalizar venda e adicionar a base
-        
         #fim gerenciamento de venda
-   
-   
+        #listagem Entradas e saidas
+        #self.tela.buttonConfirmarEntrada.clicked.connect()
+        #fim listagem entradas e saidas
     #transições entre telas
     def mostrarframeEntradasESaidas(self):
         self.esconderTodosOsFramesDeUso()
         self.tela.frameEntradasESaidas.show()
+        self.listarEntradas()
+
         
     def mostrarFrameEstatisticas(self):
         self.esconderTodosOsFramesDeUso()
@@ -100,4 +101,24 @@ class ControllerTelaSistema(QMainWindow):
         self.tela.labelTroco.setText("Troco:")
         self.tela.tabelaVendaItens.setRowCount(0)
         self.tela.labelTotalVenda.setText("Total:")
+        self.tela.entradaValorRecebidoVenda.clear()
+        self.totalVendaAtual = 0
     #fim finalizar venda
+
+    #listar entradas e saidas na tela de listagem
+    def listarEntradas(self):
+        self.tela.tabelaEntradas.setRowCount(0)
+        entrada = Entrada()
+        entradas = entrada.listarEntradas()
+        for elemento in entradas:
+            atual = self.tela.tabelaEntradas.rowCount()
+            self.tela.tabelaEntradas.insertRow(atual)
+            self.tela.tabelaEntradas.setItem(atual , 0, QTableWidgetItem(str(elemento[0])))     
+            self.tela.tabelaEntradas.setItem(atual , 1, QTableWidgetItem(str(elemento[1])))     
+            self.tela.tabelaEntradas.setItem(atual , 2, QTableWidgetItem(str(elemento[2])))     
+            self.tela.tabelaEntradas.setItem(atual , 3, QTableWidgetItem(str(elemento[3])))     
+            
+
+
+
+    #fim listar entradas e saidas na tela de listagem

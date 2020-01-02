@@ -19,6 +19,7 @@ class Entrada():
     def adicionarEntrada(self, valor, tipo, obs=""):
         self.engine.execute("INSERT INTO entrada (valor, data, tipo, obs) VALUES ('{}', '{}', '{}', '{}')".format(valor, datetime.now().strftime("%d/%m/%Y %H:%M:%S"), tipo, obs))
 
-
+    def listarEntradas(self):
+        return (self.engine.execute("SELECT * FROM entrada")).fetchall()
 
 
