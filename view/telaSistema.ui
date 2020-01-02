@@ -77,7 +77,7 @@ border: 1px solid red;
       </font>
      </property>
      <property name="text">
-      <string>88:88:88</string>
+      <string>00:00:00</string>
      </property>
     </widget>
    </widget>
@@ -132,37 +132,11 @@ hover:{
  SAIDAS</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="buttonControle">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>150</y>
-       <width>101</width>
-       <height>61</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>8</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 79, 25);
-color: rgb(255, 255, 255);
-border: 1px solid green;
-border-radius: 10px;</string>
-     </property>
-     <property name="text">
-      <string>CONTROLE</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="buttonEstatisticas">
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>220</y>
+       <y>150</y>
        <width>101</width>
        <height>61</height>
       </rect>
@@ -277,7 +251,7 @@ border-radius: 10px;
       <property name="geometry">
        <rect>
         <x>160</x>
-        <y>40</y>
+        <y>30</y>
         <width>61</width>
         <height>24</height>
        </rect>
@@ -293,7 +267,7 @@ border-radius: 10px;
       <property name="geometry">
        <rect>
         <x>160</x>
-        <y>60</y>
+        <y>50</y>
         <width>51</width>
         <height>24</height>
        </rect>
@@ -500,29 +474,12 @@ hover:{
       </property>
      </widget>
     </widget>
-    <widget class="QTableView" name="tabelaEntradasESaidas">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>140</y>
-       <width>691</width>
-       <height>351</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>22</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-    </widget>
     <widget class="QLabel" name="labelTitulo">
      <property name="geometry">
       <rect>
        <x>270</x>
        <y>10</y>
-       <width>191</width>
+       <width>201</width>
        <height>21</height>
       </rect>
      </property>
@@ -538,6 +495,16 @@ hover:{
      </property>
      <property name="text">
       <string>ENTRADAS E SAIDAS</string>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="tableWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>140</y>
+       <width>691</width>
+       <height>351</height>
+      </rect>
      </property>
     </widget>
    </widget>
@@ -566,7 +533,7 @@ border-radius: 10px;
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>231</width>
+       <width>311</width>
        <height>101</height>
       </rect>
      </property>
@@ -732,7 +699,7 @@ hover:{
        <rect>
         <x>160</x>
         <y>20</y>
-        <width>91</width>
+        <width>101</width>
         <height>31</height>
        </rect>
       </property>
@@ -750,18 +717,18 @@ hover:{
        <string>Recebido:</string>
       </property>
      </widget>
-     <widget class="QPlainTextEdit" name="entradaValorRecebido">
+     <widget class="QPlainTextEdit" name="entradaValorRecebidoVenda">
       <property name="geometry">
        <rect>
-        <x>250</x>
+        <x>260</x>
         <y>10</y>
-        <width>111</width>
+        <width>101</width>
         <height>51</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>22</pointsize>
+        <pointsize>20</pointsize>
         <weight>75</weight>
         <bold>true</bold>
        </font>
@@ -769,8 +736,11 @@ hover:{
       <property name="styleSheet">
        <string notr="true">border: 1px solid green;</string>
       </property>
+      <property name="plainText">
+       <string/>
+      </property>
      </widget>
-     <widget class="QPushButton" name="buttonValorRecebido">
+     <widget class="QPushButton" name="buttonAdicionarValorRecebidoVenda">
       <property name="geometry">
        <rect>
         <x>370</x>
@@ -819,13 +789,13 @@ hover:{
         <rect>
          <x>10</x>
          <y>10</y>
-         <width>61</width>
-         <height>21</height>
+         <width>121</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <pointsize>18</pointsize>
+         <pointsize>12</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -858,13 +828,13 @@ hover:{
         <rect>
          <x>10</x>
          <y>10</y>
-         <width>71</width>
-         <height>21</height>
+         <width>131</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <pointsize>18</pointsize>
+         <pointsize>12</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -939,6 +909,21 @@ hover:{
        <height>291</height>
       </rect>
      </property>
+     <property name="rowCount">
+      <number>0</number>
+     </property>
+     <property name="columnCount">
+      <number>2</number>
+     </property>
+     <attribute name="horizontalHeaderCascadingSectionResizes">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>334</number>
+     </attribute>
+     <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+      <bool>false</bool>
+     </attribute>
      <column>
       <property name="text">
        <string>VALOR</string>
@@ -956,6 +941,10 @@ hover:{
       </property>
      </column>
     </widget>
+    <zorder>formEntradaVenda</zorder>
+    <zorder>labelTituloVendas</zorder>
+    <zorder>tabelaVendaItens</zorder>
+    <zorder>formFinalizarVenda</zorder>
    </widget>
    <widget class="QFrame" name="frameEstatisticas">
     <property name="geometry">
@@ -982,7 +971,7 @@ border-radius: 10px;
       <rect>
        <x>290</x>
        <y>10</y>
-       <width>131</width>
+       <width>141</width>
        <height>21</height>
       </rect>
      </property>
@@ -998,50 +987,6 @@ border-radius: 10px;
      </property>
      <property name="text">
       <string>ESTATISTICAS</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QFrame" name="frameControle">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>10</y>
-      <width>711</width>
-      <height>501</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border: 1px solid red;
-border-radius: 10px;
-</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QLabel" name="labelTituloControle">
-     <property name="geometry">
-      <rect>
-       <x>310</x>
-       <y>10</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>14</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border:none;</string>
-     </property>
-     <property name="text">
-      <string>CONTROLE</string>
      </property>
     </widget>
    </widget>
@@ -1074,9 +1019,9 @@ border-radius: 10px;
     <widget class="QLabel" name="labelTituloFrameInicial">
      <property name="geometry">
       <rect>
-       <x>130</x>
+       <x>100</x>
        <y>30</y>
-       <width>461</width>
+       <width>521</width>
        <height>51</height>
       </rect>
      </property>
@@ -1104,15 +1049,15 @@ border-radius: 10px;
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(85, 0, 255);</string>
+      <string notr="true">color: rgb(0, 0, 0);</string>
      </property>
     </widget>
     <widget class="QLabel" name="labelAlerta">
      <property name="geometry">
       <rect>
-       <x>220</x>
+       <x>210</x>
        <y>380</y>
-       <width>281</width>
+       <width>291</width>
        <height>51</height>
       </rect>
      </property>
@@ -1131,16 +1076,17 @@ border-radius: 10px;
      </property>
     </widget>
    </widget>
-   <zorder>frameEstatisticas</zorder>
-   <zorder>frameControle</zorder>
    <zorder>frameRelogio</zorder>
    <zorder>frameBotoesLaterais</zorder>
    <zorder>frameResumoDia</zorder>
+   <zorder>frameEstatisticas</zorder>
    <zorder>frameEntradasESaidas</zorder>
-   <zorder>frameInicial</zorder>
    <zorder>frameVendas</zorder>
+   <zorder>frameInicial</zorder>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resource/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
