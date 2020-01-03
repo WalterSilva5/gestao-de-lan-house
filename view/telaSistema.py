@@ -287,7 +287,7 @@ class Ui_MainWindow(object):
         self.frameTotal.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frameTotal.setObjectName("frameTotal")
         self.labelTotal = QtWidgets.QLabel(self.frameTotal)
-        self.labelTotal.setGeometry(QtCore.QRect(10, 20, 151, 61))
+        self.labelTotal.setGeometry(QtCore.QRect(10, 20, 291, 61))
         font = QtGui.QFont()
         font.setPointSize(28)
         font.setBold(True)

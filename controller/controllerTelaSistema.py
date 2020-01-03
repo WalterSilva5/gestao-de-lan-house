@@ -45,13 +45,20 @@ class ControllerTelaSistema(QMainWindow):
         #adicionar saida pela tela de listagem
         self.tela.buttonConfirmarSaida.clicked.connect(self.adicionarSaidaPelaListagem)
         #fim adicionar saida pela tela de listagem
-
+        
+        #ajustar label de total geral
+        self.calcularTotalGeralDeSaldo()
+        #fim ajustar label total geral
     #transições entre telas
     def mostrarframeEntradasESaidas(self):
         self.esconderTodosOsFramesDeUso()
         self.tela.frameEntradasESaidas.show()
+        self.atualizarJanelas()
+
+    def atualizarJanelas(self):
         self.listarEntradas()
         self.listarSaidas()
+        self.calcularTotalGeralDeSaldo()
 
         
     def mostrarFrameEstatisticas(self):
@@ -103,6 +110,7 @@ class ControllerTelaSistema(QMainWindow):
             limpar = threading.Thread(target = self.limparTelaVenda)
             limpar.daemon = True
             limpar.start()
+            self.atualizarJanelas()
          
     def limparTelaVenda(self):
         self.tela.entradaValorVenda.clear()
@@ -153,7 +161,7 @@ class ControllerTelaSistema(QMainWindow):
                 entrada = Entrada()
                 entrada.adicionarEntrada(valor, tipo)
                 self.tela.entradaValorEntrada.clear()
-                self.listarEntradas()
+                self.atualizarJanelas()
     #fim adicionar valor entrada pela janela de listagem
     #adicionar valor saida pela tela de listagem
     def adicionarSaidaPelaListagem(self):
@@ -166,6 +174,19 @@ class ControllerTelaSistema(QMainWindow):
                 saida = Saida()
                 saida.adicionarSaida(valor)
                 self.tela.entradaValorSaida.clear()
-                self.listarSaidas()
-
+                self.atualizarJanelas()
     #fim adicionar valor saida pela tela de listagem
+
+    #total geral de saldo
+    def calcularTotalGeralDeSaldo(self):
+        totalEntradas = 0
+        totalSaidas = 0
+        entradas = Entrada().listarEntradas()
+        for entrada in entradas:
+            totalEntradas += float(entrada[0])
+        saidas = Saida().listarSaidas()
+        for saida in saidas:
+            totalSaidas += float(saida[0])
+        totalGeral = totalEntradas - totalSaidas
+        self.tela.labelTotal.setText("Total: {}".format(str(totalGeral)))
+    #fim total geral de saldo
