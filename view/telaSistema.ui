@@ -766,26 +766,6 @@ border-radius: 10px;
        <string>Valor:</string>
       </property>
      </widget>
-     <widget class="QPlainTextEdit" name="entradaValorVenda">
-      <property name="geometry">
-       <rect>
-        <x>80</x>
-        <y>10</y>
-        <width>121</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>22</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border: 1px solid green;</string>
-      </property>
-     </widget>
      <widget class="QPushButton" name="buttonConfirmarEntradaVenda">
       <property name="geometry">
        <rect>
@@ -813,6 +793,29 @@ hover:{
       </property>
       <property name="text">
        <string>ADICIONAR</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="entradaValorVenda">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>10</y>
+        <width>121</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>22</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid green;</string>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </widget>
@@ -852,29 +855,6 @@ hover:{
       </property>
       <property name="text">
        <string>Recebido:</string>
-      </property>
-     </widget>
-     <widget class="QPlainTextEdit" name="entradaValorRecebidoVenda">
-      <property name="geometry">
-       <rect>
-        <x>260</x>
-        <y>10</y>
-        <width>101</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>20</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border: 1px solid green;</string>
-      </property>
-      <property name="plainText">
-       <string/>
       </property>
      </widget>
      <widget class="QPushButton" name="buttonAdicionarValorRecebidoVenda">
@@ -1011,6 +991,29 @@ hover:{
       </property>
       <property name="text">
        <string>FINALIZAR</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="entradaValorVenda_2">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>10</y>
+        <width>101</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>22</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid green;</string>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </widget>
@@ -1220,9 +1223,9 @@ border-radius: 10px;
    <zorder>frameBotoesLaterais</zorder>
    <zorder>frameResumoDia</zorder>
    <zorder>frameEstatisticas</zorder>
-   <zorder>frameVendas</zorder>
    <zorder>frameEntradasESaidas</zorder>
    <zorder>frameInicial</zorder>
+   <zorder>frameVendas</zorder>
   </widget>
  </widget>
  <resources>
