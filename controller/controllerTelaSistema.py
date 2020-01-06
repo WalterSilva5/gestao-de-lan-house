@@ -188,5 +188,5 @@ class ControllerTelaSistema(QMainWindow):
         for saida in saidas:
             totalSaidas += float(saida[0])
         totalGeral = totalEntradas - totalSaidas
-        self.tela.labelTotal.setText("Total: {}".format(str(totalGeral)))
+        self.tela.labelTotal.setText("Total: {0:.2f}".format(totalGeral))
     #fim total geral de saldo
