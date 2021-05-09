@@ -1,8 +1,0 @@
-greenlet==1.1.0
-importlib-metadata==4.0.1
-PyQt5==5.15.4
-PyQt5-Qt5==5.15.2
-PyQt5-sip==12.8.1
-SQLAlchemy==1.4.14
-typing-extensions==3.10.0.0
-zipp==3.4.1
